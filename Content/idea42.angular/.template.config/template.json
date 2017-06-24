@@ -1,0 +1,51 @@
+{
+  "author": "Microsoft",
+  "classifications": [
+    "Web",
+    "MVC",
+    "SPA"
+  ],
+  "groupIdentity": "Microsoft.AspNetCore.SpaTemplates.Angular",
+  "identity": "Microsoft.AspNetCore.SpaTemplates.Angular.CSharp",
+  "name": "MVC ASP.NET Core with Angular",
+  "preferNameDirectory": true,
+  "primaryOutputs": [
+    {
+      "path": "WebApplicationBasic.csproj"
+    }
+  ],
+  "shortName": "angular",
+  "sourceName": "WebApplicationBasic",
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        ".template.config/**"
+      ]
+    }
+  ],
+  "symbols": {
+    "sdkVersion": {
+      "type": "bind",
+      "binding": "dotnet-cli-version",
+      "replaces": "sdkVersionInjectedHere"
+    },
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "netcoreapp1.1",
+          "description": "Target netcoreapp1.1"
+        }
+      ],
+      "defaultValue": "netcoreapp1.1"
+    }
+  },
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}

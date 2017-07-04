@@ -31,12 +31,22 @@ namespace WebApplicationBasic.Controllers
         {
             if (request.IsPasswordGrantType())
             {
-                var signinResult = await _signInManager.PasswordSignInAsync(request.Username, request.Password, false, false);
+                // For production, you should remove this.
+                if (_userManager.Users.Count() == 0)
+                    await _userManager.CreateAsync(new ApplicationUser
+                    {
+                        Email = "admin@admin.com",
+                        UserName = "Administrator",
+                        FirstName = "Administrator",
+                        LastName = "Administrator"
+                    }, "P@ssw0rd");
+
+                var user = _userManager.Users.Where(t => t.UserName.ToLower() == request.Username.ToLower()).FirstOrDefault();
+                
+                var signinResult = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
                 if (signinResult.Succeeded)
                 {
-                    var user = _userManager.Users.Where(t=>t.UserName == request.Username).FirstOrDefault();
-
                     var identity = new ClaimsIdentity(
                         OpenIdConnectServerDefaults.AuthenticationScheme,
                         OpenIdConnectConstants.Claims.Name,
@@ -49,7 +59,8 @@ namespace WebApplicationBasic.Controllers
 
                     return SignIn(principal, OpenIdConnectServerDefaults.AuthenticationScheme);
                 }
-                else{
+                else
+                {
                     throw new InvalidOperationException("The specified user name and password are invalid");
                 }
             }
@@ -58,17 +69,7 @@ namespace WebApplicationBasic.Controllers
 
         [HttpPost]
         [Authorize]
-        [Route("api/auth/test")]
-        public IActionResult Test()
-        {
-            return Ok(HttpContext.User.Identity.Name);
-        }
-
-
-        [HttpPost]
-        [Authorize]
         [Route("api/auth/create")]
-
         public async Task<IActionResult> Create([FromBody] NewUserRequest login)
         {
             var results = await _userManager.CreateAsync(new ApplicationUser { UserName = login.UserName, FirstName = login.FirstName, LastName = login.LastName }, login.Password);
@@ -79,7 +80,7 @@ namespace WebApplicationBasic.Controllers
             }
             else
             {
-                return Unauthorized();
+                return BadRequest(results.Errors);
             }
         }
     }

@@ -9,6 +9,17 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/js/site.js",
+    "inputFiles": [
+      "node_modules/angular/angular.js",
+      "node_modules/angular-route/angular-route.js",
+      "wwwroot/angular/angular-app.js",
+      "wwwroot/angular/controllers/*.js"
+    ],
+    // Optionally generate .map file
+    "sourceMap": false
+  },
+  {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
       "wwwroot/js/site.js"

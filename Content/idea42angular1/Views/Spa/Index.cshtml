@@ -2,12 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<html>
+<html ng-app="angularSPA">
 <head>
-    <script src="~/js/site.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="~/css/site.min.css" />
+    <script src="~/js/site.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+    <base href="/" />
 </head>
 <body>
+    <div ng-include="'/angular/views/shell.html'">
 
+    </div>
 </body>
 </html>

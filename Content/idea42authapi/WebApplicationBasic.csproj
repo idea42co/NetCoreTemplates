@@ -2,15 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-    <Folder Include="Models\" />
-    <Folder Include="Models\Entities\" />
-    <Folder Include="Data\" />
-    <Folder Include="Data\DbContexts\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\ApiModels\" />
-  </ItemGroup>
+  <PropertyGroup>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OAuth.Validation" Version="1.0.0-*" /> 
     <PackageReference Include="OpenIddict" Version="1.0.0-*" /> 

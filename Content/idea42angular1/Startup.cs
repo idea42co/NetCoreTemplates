@@ -52,8 +52,14 @@ namespace WebApplicationBasic
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Spa}/{action=Index}/{id?}");
+                    name: "AngularSPA",
+                    template: "",
+                    defaults: new { controller = "Spa", action = "Index" });
+
+                routes.MapRoute(
+                    name: "AngularSPADeepLink",
+                    template: "{*pathInfo}",
+                    defaults: new { controller = "Spa", action = "Index" });
             });
         }
     }

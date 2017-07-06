@@ -1,0 +1,10 @@
+version: 1.0.{build}
+configuration: Release
+clone_depth: 1
+build_script:
+- cmd: nuget pack -Version %APPVEYOR_BUILD_VERSION%
+- cmd: nuget push *.nupkg f05e5836-28c3-4da9-b922-81ad70dc7509
+artifacts:
+- path: '*.nupkg'
+  name: TemplateNuget
+  type: nupkg

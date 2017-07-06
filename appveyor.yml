@@ -3,7 +3,7 @@ configuration: Release
 clone_depth: 1
 build_script:
 - cmd: nuget pack -Version %APPVEYOR_BUILD_VERSION%
-- cmd: nuget push *.nupkg f05e5836-28c3-4da9-b922-81ad70dc7509
+- cmd: nuget push *.nupkg f05e5836-28c3-4da9-b922-81ad70dc7509 -source https://www.nuget.org/api/v2/package
 artifacts:
 - path: '*.nupkg'
   name: TemplateNuget

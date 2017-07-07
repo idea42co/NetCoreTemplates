@@ -8,7 +8,7 @@ Install .NET Core here (https://www.microsoft.com/net/core)
 
 ## Installation
 To install our templates, simply run the following command:
-`dotnet new -install Idea42.NetCore.Templates::*`
+`dotnet new --install Idea42.NetCore.Templates::*`
 
 You should now have some new options avaliable for the `dotnet new` command. :-)
 

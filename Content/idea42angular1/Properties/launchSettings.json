@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WebApplicationBasic": {
+    "test": {
       "commandName": "Project"
     }
   }

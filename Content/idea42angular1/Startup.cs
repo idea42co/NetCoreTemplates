@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WebApplicationBasic.Models;
 
-namespace WebApplicationBasic
+namespace test
 {
     public class Startup
     {
@@ -29,6 +30,8 @@ namespace WebApplicationBasic
         {
             // Add framework services.
             services.AddMvc();
+
+            services.Configure<AngularAppConfig>(Configuration.GetSection("AngularAppConfig"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

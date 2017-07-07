@@ -34,7 +34,7 @@ To recompile, and make sure all thigns happen that need to happen with minificat
 `dotnet run`
 
 ### `dotnet new idea42.authapi`
-This is a basic API with JSON WebToken authentication enabled. We are using EF and SQLite. You can change the database to SQL Server easly by replacing `options.UseSqlServer` with `options.UseSqlite` in `Startup.cs`. After you do this, you'll need to update your connection strings to work with SQL Server. You can see those connection string in the appSettings.json file. 
+This is a basic API with JSON WebToken authentication enabled. We are using EF and SQLite. You can change the database to SQL Server easly by replacing `options.UseSqlite` with `options.UseSqlServer` in `Startup.cs`. After you do this, you'll need to update your connection strings to work with SQL Server. You can see those connection string in the appSettings.json file. 
 
 To build and get this template working as is, you need to do the following. 
 

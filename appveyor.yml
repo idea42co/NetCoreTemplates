@@ -7,8 +7,3 @@ artifacts:
 - path: '*.nupkg'
   name: TemplateNuget
   type: nupkg
-deploy:
-- provider: Environment
-  name: Idea42 Template Nuget
-  on:
-    branch: master

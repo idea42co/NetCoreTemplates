@@ -1,10 +1,10 @@
 # Idea42 NetCoreTemplates
-At Idea42, we strive to build things that help us every day, to build better software. Since we love .NET Core, we thought we would contribute to help others out. 
+At Idea42, we strive to build things that help build better software. Since we love .NET Core, we thought we would build something to not only help us out, but help others out!
 
 We will have more templates coming soon, so check back for updates, and reinstall your templates from time to time to keep them up-to-date!
 
 ## Prerequisites
-Install .NET Core here (https://www.microsoft.com/net/core#macos)
+Install .NET Core here (https://www.microsoft.com/net/core)
 
 ## Installation
 To install our templates, simply run the following command:

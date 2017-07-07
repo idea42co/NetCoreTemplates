@@ -15,7 +15,7 @@ You should now have some new options avaliable for the `dotnet new` command. :-)
 If you have issues getting up and running with one of our templates, please see the steps below for the template you are trying to work with
 
 ### `dotnet new idea42.angular1`
-This is a basic angular 1.x template with a helpful `serviceBase.js` service and built in capabilities to inject settings from the appSettings.json files. Perform the following commands to compile. 
+This is a basic angular 1.x template with a helpful `serviceBase.js` service and built in capabilities to inject settings from the `appSettings.json` files. Perform the following commands to compile. 
 
 `npm install -g gulp-cli`
 
@@ -34,7 +34,9 @@ To recompile, and make sure all thigns happen that need to happen with minificat
 `dotnet run`
 
 ### `dotnet new idea42.authapi`
-This is a basic API with JSON WebToken authentication pre-enabled. Things are set up with EF as well using SQLite. You can change this up easly by saying `options.UseSqlServer` instead of `options.UseSqlite` in the `Startup.cs`, then updating your connection strings in the appSettings.json files. To build and get this template working as is, you need to do the following. 
+This is a basic API with JSON WebToken authentication enabled. We are using EF and SQLite. You can change the database to SQL Server easly by replacing `options.UseSqlServer` with `options.UseSqlite` in `Startup.cs`. After you do this, you'll need to update your connection strings to work with SQL Server. You can see those connection string in the appSettings.json file. 
+
+To build and get this template working as is, you need to do the following. 
 
 `dotnet restore`
 

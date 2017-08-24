@@ -7,9 +7,9 @@ namespace WebApplicationBasic.Data
 {
     public class UoW : IUoW
     {
-        private WowbaggersDbContext _dbContext;
+        private ApplicationDbContext _dbContext;
 
-        public UoW(WowbaggersDbContext dbContext)
+        public UoW(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }

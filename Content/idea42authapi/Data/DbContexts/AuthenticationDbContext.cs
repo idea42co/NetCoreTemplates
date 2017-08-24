@@ -5,7 +5,7 @@ using WebApplicationBasic.Models.Entities;
 
 namespace WebApplicationBasic.Data.DbContexts
 {
-    public class AuthenticationDbContext : IdentityDbContext<ApplicationUser>
+    public class AuthenticationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         public AuthenticationDbContext(DbContextOptions<AuthenticationDbContext> options)
             : base(options)

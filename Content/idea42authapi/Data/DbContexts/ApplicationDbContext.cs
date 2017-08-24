@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace WebApplicationBasic.Data.DbContexts
 {
-    public class WowbaggersDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
-        public WowbaggersDbContext(DbContextOptions<WowbaggersDbContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }

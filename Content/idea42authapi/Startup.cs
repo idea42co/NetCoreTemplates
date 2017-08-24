@@ -35,18 +35,18 @@ namespace WebApplicationBasic
         {
             services.AddMvc();
 
-            services.AddDbContext<WowbaggersDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 {
                     options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
                     options.UseOpenIddict();
                 }
             );
 
-            services.AddIdentity<ApplicationUser, ApplicationRole>().AddEntityFrameworkStores<WowbaggersDbContext, Guid>().AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, ApplicationRole>().AddEntityFrameworkStores<ApplicationDbContext, Guid>().AddDefaultTokenProviders();
 
             services.AddOpenIddict(options =>
             {
-                options.AddEntityFrameworkCoreStores<WowbaggersDbContext>();
+                options.AddEntityFrameworkCoreStores<ApplicationDbContext>();
                 options.AddMvcBinders();
                 options.EnableTokenEndpoint("/token");
                 options.AllowPasswordFlow();

@@ -1,20 +1,20 @@
 {
   "author": "Idea42, LLC",
   "classifications": [
-    "WebAPI",
-    "Authentication",
+    "Web",
+    "Angular1x",
     "Base"
   ],
-  "groupIdentity": "Idea42.NetCore.Templates.AuthApi",
-  "identity": "Idea42.NetCore.Templates.AuthApi.CSharp",
-  "name": "Idea42: Authenticated API Base",
+  "groupIdentity": "Idea42.NetCore.Templates.Angular1",
+  "identity": "Idea42.NetCore.Templates.Angular1.CSharp",
+  "name": "Idea42: Angular 1x base",
   "preferNameDirectory": true,
   "primaryOutputs": [
     {
       "path": "WebApplicationBasic.csproj"
     }
   ],
-  "shortName": "idea42.authapi",
+  "shortName": "idea42.angular1",
   "sourceName": "WebApplicationBasic",
   "sources": [
     {

@@ -1,6 +1,4 @@
 ﻿using System;
-using WebApplicationBasic.Models.ApiModels;
-
 
 namespace WebApplicationBasic.Models.ApiModels
 {

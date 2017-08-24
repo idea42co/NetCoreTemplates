@@ -8,41 +8,60 @@ using AspNet.Security.OpenIdConnect.Primitives;
 using AspNet.Security.OpenIdConnect.Server;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using WebApplicationBasic.Models.ApiModels;
 using WebApplicationBasic.Models.Entities;
+using WebApplicationBasic.Services.Contracts;
+using WebApplicationBasic.Common;
 
 namespace WebApplicationBasic.Controllers
 {
     public class AuthController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IRoleService _roleService;
+        private readonly IUserService _userService;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
 
-        public AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager, IUserService userService, IRoleService roleService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
+            _userService = userService;
+            _roleService = roleService;
         }
+
+
 
         [HttpPost("~/token"), Produces("application/json")]
         public async Task<IActionResult> Exchange(OpenIdConnectRequest request)
         {
             if (request.IsPasswordGrantType())
             {
-                // For production, you should remove this.
+                await _roleService.EnsureRoles();
+
                 if (_userManager.Users.Count() == 0)
-                    await _userManager.CreateAsync(new ApplicationUser
+                {
+                    var results = await _userManager.CreateAsync(new ApplicationUser
                     {
                         Email = "admin@admin.com",
-                        UserName = "Administrator",
-                        FirstName = "Administrator",
-                        LastName = "Administrator"
+                        UserName = "admin@admin.com",
                     }, "P@ssw0rd");
 
+                    var adminUser = _userService.GetUser("admin@admin.com");
+
+                    await _userManager.AddToRolesAsync(adminUser, new List<string> { ApplicationRoleNames.Admin, ApplicationRoleNames.User });
+                }
+
                 var user = _userManager.Users.Where(t => t.UserName.ToLower() == request.Username.ToLower()).FirstOrDefault();
-                
+
+                if (user == null)
+                    return NotFound(new { message = "The specified user name and password are invalid" });
+
                 var signinResult = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
                 if (signinResult.Succeeded)
@@ -52,7 +71,7 @@ namespace WebApplicationBasic.Controllers
                         OpenIdConnectConstants.Claims.Name,
                         OpenIdConnectConstants.Claims.Role);
 
-                    identity.AddClaim(OpenIdConnectConstants.Claims.Subject, user.Id, OpenIdConnectConstants.Destinations.AccessToken);
+                    identity.AddClaim(OpenIdConnectConstants.Claims.Subject, user.Id.ToString(), OpenIdConnectConstants.Destinations.AccessToken);
                     identity.AddClaim(OpenIdConnectConstants.Claims.Name, user.UserName, OpenIdConnectConstants.Destinations.AccessToken);
 
                     var principal = new ClaimsPrincipal(identity);
@@ -61,18 +80,18 @@ namespace WebApplicationBasic.Controllers
                 }
                 else
                 {
-                    throw new InvalidOperationException("The specified user name and password are invalid");
+                    return NotFound(new { message = "The specified user name and password are invalid" });
                 }
             }
-            throw new InvalidOperationException("The specified grant type is not supported.");
+            return NotFound(new { message = "The specified grant type is not supported." });
         }
 
         [HttpPost]
-        [Authorize]
+        [AllowAnonymous]
         [Route("api/auth/create")]
         public async Task<IActionResult> Create([FromBody] NewUserRequest login)
         {
-            var results = await _userManager.CreateAsync(new ApplicationUser { UserName = login.UserName, FirstName = login.FirstName, LastName = login.LastName }, login.Password);
+            var results = await _userManager.CreateAsync(new ApplicationUser { UserName = login.UserName }, login.Password);
 
             if (results.Succeeded)
             {

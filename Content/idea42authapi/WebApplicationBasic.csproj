@@ -2,17 +2,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
+  <PropertyGroup>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+  </PropertyGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-    <Folder Include="Models\" />
-    <Folder Include="Models\Entities\" />
-    <Folder Include="Data\" />
-    <Folder Include="Data\DbContexts\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\ApiModels\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="AspNet.Security.OAuth.Validation" Version="1.0.0-*" /> 
+    <PackageReference Include="AspNet.Security.OAuth.Validation" Version="1.0.0-*" />
     <PackageReference Include="OpenIddict" Version="1.0.0-*" /> 
     <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="1.0.0-*" /> 
     <PackageReference Include="OpenIddict.Mvc" Version="1.0.0-*" />
@@ -27,10 +21,23 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.1" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

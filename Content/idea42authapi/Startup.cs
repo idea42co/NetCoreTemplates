@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using WebApplicationBasic.Data.DbContexts;
 using WebApplicationBasic.Models.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using AutoMapper;
+using WebApplicationBasic.Services;
+using WebApplicationBasic.Services.Contracts;
+using WebApplicationBasic.Data.Contracts;
+using WebApplicationBasic.Data;
+using System;
+using Newtonsoft.Json.Serialization;
 
 namespace WebApplicationBasic
 {
@@ -36,23 +35,28 @@ namespace WebApplicationBasic
         {
             services.AddMvc();
 
-            services.AddDbContext<AuthenticationDbContext>(options => 
+            services.AddDbContext<WowbaggersDbContext>(options =>
                 {
-                    options.UseSqlite(Configuration.GetConnectionString("AuthDbConnection"));
+                    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
                     options.UseOpenIddict();
                 }
             );
 
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AuthenticationDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, ApplicationRole>().AddEntityFrameworkStores<WowbaggersDbContext, Guid>().AddDefaultTokenProviders();
 
             services.AddOpenIddict(options =>
             {
-                options.AddEntityFrameworkCoreStores<AuthenticationDbContext>();
+                options.AddEntityFrameworkCoreStores<WowbaggersDbContext>();
                 options.AddMvcBinders();
                 options.EnableTokenEndpoint("/token");
                 options.AllowPasswordFlow();
                 options.DisableHttpsRequirement();
             });
+
+            services.AddAutoMapper();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IUoW, UoW>();
         }
 
 
@@ -61,7 +65,7 @@ namespace WebApplicationBasic
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
+            app.UseDeveloperExceptionPage();
             app.UseIdentity();
             app.UseOAuthValidation();
             app.UseOpenIddict();

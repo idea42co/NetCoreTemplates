@@ -1,5 +1,6 @@
-﻿using WWebApplicationBasicModels.ApiModels;
-using System;
+﻿using System;
+using WebApplicationBasic.Models.ApiModels;
+
 
 namespace WebApplicationBasic.Models.ApiModels
 {

@@ -10,3 +10,6 @@
 /Content/idea42angular1/wwwroot/css/*.min.css
 /Content/*/package-lock.json
 /Content/*/*.sln
+/Content/idea42authapi/Migrations
+*.db
+*.user

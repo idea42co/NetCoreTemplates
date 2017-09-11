@@ -15,6 +15,7 @@ using WebApplicationBasic.Models.Entities;
 using WebApplicationBasic.Services.Contracts;
 using AutoMapper;
 using System.IO;
+using AspNet.Security.OAuth.Validation;
 
 namespace WebApplicationBasic.Controllers
 {
@@ -47,7 +48,7 @@ namespace WebApplicationBasic.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
         [Route("api/user/update")]
         public async Task<IActionResult> Update([FromBody] UpdateUserRequest request)
         {

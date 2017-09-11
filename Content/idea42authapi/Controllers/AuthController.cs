@@ -42,7 +42,14 @@ namespace WebApplicationBasic.Controllers
         {
             if (request.IsPasswordGrantType())
             {
-                await _roleService.EnsureRoles();
+                try
+                {
+                    await _roleService.EnsureRoles();
+                }
+                catch(Exception exc)
+                {
+
+                }
 
                 if (_userManager.Users.Count() == 0)
                 {

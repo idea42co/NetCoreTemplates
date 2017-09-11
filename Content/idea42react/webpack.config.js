@@ -3,7 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ['./app/src/index.js'],
+    entry: ['./app/index.js'],
     module: {
         rules: [
             { test: /\.js$/, loader: 'babel-loader', query: { presets: ['env', 'react'] }, exclude: /node_modules/ },
@@ -28,11 +28,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: __dirname + '/app/src/index.html',
-            filename: 'index.html',
-            inject: 'body'
-        }),
         new ExtractTextPlugin({
             filename: "bundle.css",
             disable: false,

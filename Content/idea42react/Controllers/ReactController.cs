@@ -8,18 +8,17 @@ using WebApplicationBasic.Models;
 
 namespace WebApplicationBasic.Controllers
 {
-    public class SpaController : Controller
+    public class ReactController : Controller
     {
-        public readonly AngularAppConfig _config;
+        public readonly ReactAppSettings _config;
 
-        public SpaController(IOptions<AngularAppConfig> options)
-        {
-            
+        public ReactController(IOptions<ReactAppSettings> options)
+        {   
             _config = options.Value;
         }
         public IActionResult Index()
         {
-            ViewBag.AngularAppConfig = _config;
+            ViewBag.ReactAppConfig = _config;
             return View();
         }
     }

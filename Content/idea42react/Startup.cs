@@ -31,7 +31,7 @@ namespace WebApplicationBasic
             // Add framework services.
             services.AddMvc();
 
-            services.Configure<AngularAppConfig>(Configuration.GetSection("AngularAppConfig"));
+            services.Configure<ReactAppSettings>(Configuration.GetSection("ReactAppSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,14 +54,14 @@ namespace WebApplicationBasic
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "AngularSPA",
+                    name: "ReactJS",
                     template: "",
-                    defaults: new { controller = "Spa", action = "Index" });
+                    defaults: new { controller = "React", action = "Index" });
 
                 routes.MapRoute(
-                    name: "AngularSPADeepLink",
+                    name: "ReactJSDeepLink",
                     template: "{*pathInfo}",
-                    defaults: new { controller = "Spa", action = "Index" });
+                    defaults: new { controller = "React", action = "Index" });
             });
         }
     }

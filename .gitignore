@@ -1,2 +1,12 @@
 /_rels/*
 *.nupkg
+/obj/Debug/*
+/node_modules/*
+/Content/*/obj
+/Content/*/node_modules
+/Content/idea42angular1/wwwroot/js
+/Content/*/.vs
+/Content/*/bin/Debug/netcoreapp2.0
+/Content/idea42angular1/wwwroot/css/*.min.css
+/Content/*/package-lock.json
+/Content/*/*.sln

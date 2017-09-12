@@ -1,10 +1,11 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './index.css';
 
-import AppPage from './pages/AppPage';
+import HomePage from './pages/HomePage';
+import NewPage from './pages/NewPage';
 
 // Material-UI needs me to do this because it likes the onTapTouch feature which 
 // is a time-based interaction for mobile phones...   I didn't ask for this.
@@ -57,7 +58,10 @@ if (!Array.prototype.find) {
 
 ReactDOM.render(
     <BrowserRouter>
-        <AppPage />
+        <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/newPage" component={NewPage} />
+        </Switch>
     </BrowserRouter>,
     document.getElementById('root')
 );

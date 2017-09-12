@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const style = {
     container: {
@@ -14,7 +14,7 @@ const style = {
     }
 }
 
-class AppPage extends Component {
+class NewPage extends Component {
     constructor(props) {
         super(props);
     }
@@ -23,11 +23,12 @@ class AppPage extends Component {
         return (
             <div style={style.container}>
                 <div style={style.child} >
-                    Welcome to ReactJS!
+                    Welcome to a new page! <br />
+                    <Link to="/">Go back home!</Link>
                 </div>
             </div>
         );
     }
 }
 
-export default AppPage;
+export default NewPage;

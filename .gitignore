@@ -11,5 +11,7 @@
 /Content/*/package-lock.json
 /Content/*/*.sln
 /Content/idea42authapi/Migrations
+/Content/idea42react/wwwroot/*.js
+/Content/idea42react/wwwroot/*.css
 *.db
 *.user

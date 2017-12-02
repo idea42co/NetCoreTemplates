@@ -49,3 +49,24 @@ To build and get this template working as is, you need to do the following.
 `dotnet run`
 
 As always, if you add a new DB context, or change an existing one, create a new migration by using `dotnet ef migrations add migrationName` and then call `dotnet ef database update`
+
+### `dotnet new idea42.reactjs`
+This is a bare bone basic implementation of ReactJS using MVC to inject the HTML and Javascript to the browser. Once the Javascript is loaded, react takes over, delivering a 100% pure ReactJS experience. The react app is all stored in the `app` folder and uses react-router to handle the routing of the pages. Perform the following commands to compile:
+
+`npm install`
+
+`dotnet restore`
+
+`dotnet build`
+
+`dotnet run`
+
+**AFTER CHANGES**
+
+To recompile, and make sure all thigns happen that need to happen with webpack bundling, always run
+
+`dotnet build`
+
+`dotnet run`
+
+You can also from the root of the application type `webpack`. 

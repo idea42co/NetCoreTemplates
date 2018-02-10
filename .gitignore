@@ -3,6 +3,7 @@
 /obj/Debug/*
 /node_modules/*
 /Content/*/obj
+/Content/*/obj/Debug/*
 /Content/*/node_modules
 /Content/idea42angular1/wwwroot/js
 /Content/*/.vs

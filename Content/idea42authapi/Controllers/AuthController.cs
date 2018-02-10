@@ -42,28 +42,7 @@ namespace WebApplicationBasic.Controllers
         {
             if (request.IsPasswordGrantType())
             {
-                try
-                {
-                    await _roleService.EnsureRoles();
-                }
-                catch(Exception exc)
-                {
-
-                }
-
-                if (_userManager.Users.Count() == 0)
-                {
-                    var results = await _userManager.CreateAsync(new ApplicationUser
-                    {
-                        Email = "admin@admin.com",
-                        UserName = "admin@admin.com",
-                    }, "P@ssw0rd");
-
-                    var adminUser = _userService.GetUser("admin@admin.com");
-
-                    await _userManager.AddToRolesAsync(adminUser, new List<string> { ApplicationRoleNames.Admin, ApplicationRoleNames.User });
-                }
-
+               
                 var user = _userManager.Users.Where(t => t.UserName.ToLower() == request.Username.ToLower()).FirstOrDefault();
 
                 if (user == null)

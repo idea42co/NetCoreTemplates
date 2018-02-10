@@ -7,6 +7,5 @@ namespace WebApplicationBasic.Services.Contracts
 {
     public interface IRoleService
     {
-        Task EnsureRoles();
     }
 }

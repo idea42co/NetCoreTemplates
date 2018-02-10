@@ -17,17 +17,5 @@ namespace WebApplicationBasic.Services
         {
             _roleManager = roleManager;
         }
-
-        public async Task EnsureRoles()
-        {
-            if (!_roleManager.Roles.Any(role => role.Name == ApplicationRoleNames.Admin))
-                await _roleManager.CreateAsync(new ApplicationRole { Name = ApplicationRoleNames.Admin });
-
-            if (!_roleManager.Roles.Any(role => role.Name == ApplicationRoleNames.User))
-                await _roleManager.CreateAsync(new ApplicationRole { Name = ApplicationRoleNames.User });
-
-            if (!_roleManager.Roles.Any(role => role.Name == ApplicationRoleNames.Blocked))
-                await _roleManager.CreateAsync(new ApplicationRole { Name = ApplicationRoleNames.Blocked });
-        }
     }
 }

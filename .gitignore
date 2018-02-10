@@ -15,3 +15,4 @@
 /Content/idea42react/wwwroot/*.css
 *.db
 *.user
+/Content/*/Properties/launchSettings.json

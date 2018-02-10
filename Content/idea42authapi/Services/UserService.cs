@@ -50,8 +50,6 @@ namespace WebApplicationBasic.Services
 
             if (results.Succeeded)
             {
-                await _roleService.EnsureRoles();
-
                 var newUser = GetUser(user.UserName);
 
                 await _userManager.AddToRoleAsync(newUser, ApplicationRoleNames.User);

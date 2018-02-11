@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AuthManager from '../../Shared/AuthManager';
+import AuthManager from '../../Managers/AuthManager';
 
 const style = {
     container: {
@@ -18,6 +18,11 @@ const style = {
 class NewPage extends Component {
     constructor(props) {
         super(props);
+
+        var auth = AuthManager.getInstance();
+        if (!auth.isAuthenticated) {
+            this.props.history.push("/Login");
+        }
     }
 
     render() {

@@ -4,9 +4,8 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import './index.css';
 
-import AuthManager from './Shared/AuthManager';
-
 import HomePage from './Pages/Home';
+import LoginPage from './Pages/Login';
 
 // Material-UI needs me to do this because it likes the onTapTouch feature which 
 // is a time-based interaction for mobile phones...   I didn't ask for this.
@@ -60,7 +59,8 @@ if (!Array.prototype.find) {
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/Login" component={LoginPage} />
+            <Route exact path="/" component={HomePage} />
         </Switch>
     </BrowserRouter>,
     document.getElementById('root')

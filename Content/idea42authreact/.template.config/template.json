@@ -1,0 +1,51 @@
+{
+  "author": "Idea42, LLC",
+  "classifications": [
+    "Web",
+    "ReactJS",
+    "Base"
+  ],
+  "groupIdentity": "Idea42.NetCore.Templates.ReactJS",
+  "identity": "Idea42.NetCore.Templates.ReactJS.CSharp",
+  "name": "Idea42: ReactJS base",
+  "preferNameDirectory": true,
+  "primaryOutputs": [
+    {
+      "path": "WebApplicationBasic.csproj"
+    }
+  ],
+  "shortName": "idea42.reactjs",
+  "sourceName": "WebApplicationBasic",
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        ".template.config/**"
+      ]
+    }
+  ],
+  "symbols": {
+    "sdkVersion": {
+      "type": "bind",
+      "binding": "dotnet-cli-version",
+      "replaces": "sdkVersionInjectedHere"
+    },
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "netcoreapp2.0",
+          "description": "Target netcoreapp2.0"
+        }
+      ],
+      "defaultValue": "netcoreapp2.0"
+    }
+  },
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}

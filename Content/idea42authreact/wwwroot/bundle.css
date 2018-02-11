@@ -9,3 +9,19 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: rgba(241,244,245,1);
 }
+.homeContainer {
+  height: 100vh;
+  width: 100%;
+  position: relative; }
+  .homeContainer .child {
+    position: absolute;
+    top: 50%;
+    left: 44%; }
+.loginContainer {
+  height: 100vh;
+  width: 100%;
+  position: relative; }
+  .loginContainer .child {
+    position: absolute;
+    top: 50%;
+    left: 44%; }

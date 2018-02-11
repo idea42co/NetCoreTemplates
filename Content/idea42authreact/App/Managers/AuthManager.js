@@ -39,6 +39,14 @@ class AuthManager {
 
     updateToken(value) {
         this.bearerToken = value;
+        this.isAuthenticated = true;
+        this.notifySubscribers();
+    }
+
+    logOut() {
+        this.bearerToken = undefined;
+        this.isAuthenticated = undefined;
+        localStorage.removeItem("AuthManager::State");
         this.notifySubscribers();
     }
 

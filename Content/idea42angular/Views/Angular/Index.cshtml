@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using Newtonsoft.Json;
+<html ng-app="angularSPA">
+<head>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="bundle.css" />
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <title>Idea42 - Angular Base</title>
+    <script type="text/javascript">
+        var reactAppSettings = @Html.Raw(JsonConvert.SerializeObject(ViewBag.AngularAppSettings));
+    </script>
+    <base href="/" />
+</head>
+<body>
+    <div id="root"></div>
+    <script src="bundle.js" type="text/javascript"></script>
+</body>
+</html>

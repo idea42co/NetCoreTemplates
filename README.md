@@ -14,7 +14,7 @@ You should now have some new options avaliable for the `dotnet new` command. :-)
 
 If you have issues getting up and running with one of our templates, please see the steps below for the template you are trying to work with
 
-### `dotnet new idea42.angular1`
+### `dotnet new angular1`
 This is a basic angular 1.x template with a helpful `serviceBase.js` service and built in capabilities to inject settings from the `appSettings.json` files. Perform the following commands to compile. 
 
 `npm install -g gulp-cli`
@@ -33,7 +33,7 @@ To recompile, and make sure all thigns happen that need to happen with minificat
 
 `dotnet run`
 
-### `dotnet new idea42.authapi`
+### `dotnet new authapi`
 This is a basic API with JSON WebToken authentication enabled. We are using EF and SQLite. You can change the database to SQL Server easily by replacing `options.UseSqlite` with `options.UseSqlServer` in `Startup.cs`. After you do this, you'll need to update your connection strings to work with SQL Server. You can see those connection string in the appSettings.json file. 
 
 To build and get this template working as is, you need to do the following. 
@@ -50,7 +50,7 @@ To build and get this template working as is, you need to do the following.
 
 As always, if you add a new DB context, or change an existing one, create a new migration by using `dotnet ef migrations add migrationName` and then call `dotnet ef database update`
 
-### `dotnet new idea42.reactjs`
+### `dotnet new reactjs`
 This is a bare bone basic implementation of ReactJS using MVC to inject the HTML and Javascript to the browser. Once the Javascript is loaded, react takes over, delivering a 100% pure ReactJS experience. The react app is all stored in the `app` folder and uses react-router to handle the routing of the pages. Perform the following commands to compile:
 
 `npm install`

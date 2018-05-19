@@ -14,7 +14,7 @@
       "path": "WebApplicationBasic.csproj"
     }
   ],
-  "shortName": "i42.authapi",
+  "shortName": "authapi",
   "sourceName": "WebApplicationBasic",
   "sources": [
     {

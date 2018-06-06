@@ -17,3 +17,8 @@
 *.db
 *.user
 /Content/*/Properties/launchSettings.json
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+src/**/*.css

@@ -11,7 +11,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
   <Target Name="PrecompileTarget" AfterTargets="Build">
-    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run buildDev" />
-    <Exec Condition="$(Configuration) == 'Release'" Command="npm run buildProd" />
+    <Exec Condition="$(Configuration) == 'Debug'" Command="yarn build" />
+    <Exec Condition="$(Configuration) == 'Release'" Command="yarn build" />
   </Target>
 </Project>

@@ -10,6 +10,14 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings*json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\**">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
   <Target Name="PrecompileTarget" AfterTargets="Build">
     <Exec Condition="$(Configuration) == 'Debug'" Command="yarn build" />
     <Exec Condition="$(Configuration) == 'Release'" Command="yarn build" />

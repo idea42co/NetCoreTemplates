@@ -11,8 +11,8 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "docker-build": "docker build -t webapplicationbasic .",
-    "docker-run": "docker run -d -p 3000:3000 --name reactapp webapplicationbasic",
+    "docker-build": "docker build -t reactwebapp .",
+    "docker-run": "docker run -d -p 3000:3000 --name reactapp reactwebapp",
     "docker-stop": "docker container stop reactapp || true",
     "docker-remove": "docker container rm reactapp || true",
     "docker": "npm-run-all docker-build docker-stop docker-remove docker-run",

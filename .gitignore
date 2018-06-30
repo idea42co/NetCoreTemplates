@@ -2,6 +2,7 @@
 *.nupkg
 /obj/Debug/*
 /node_modules/*
+/Content/*/bin
 /Content/*/obj
 /Content/*/obj/Debug/*
 /Content/*/node_modules

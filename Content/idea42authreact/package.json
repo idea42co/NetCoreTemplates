@@ -1,0 +1,31 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-sass-chokidar": "^1.3.0",
+    "npm-run-all": "^4.1.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "underscore": "^1.9.1"
+  },
+  "scripts": {
+    "docker-build": "docker build -t reactauthwebapp .",
+    "docker-run": "docker run -d -p 3000:3000 --name reactapp reactauthwebapp",
+    "docker-stop": "docker container stop reactapp || true",
+    "docker-remove": "docker container rm reactapp || true",
+    "docker": "npm-run-all docker-build docker-stop docker-remove docker-run",
+    "pre-build": "rm -r wwwroot",
+    "post-build": "mv build wwwroot",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all pre-build build-css build-js post-build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

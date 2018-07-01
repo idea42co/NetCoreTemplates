@@ -1,4 +1,4 @@
-# dotnet new angularjs
+# `dotnet new angularjs`
 This bootstrap used the `ng new` command to build a standalone AngularJS application that builds directly into .NET Core.
 
 ## For Development

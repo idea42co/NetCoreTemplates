@@ -1,72 +1,27 @@
-# Idea42 NetCoreTemplates
-At Idea42, we strive to build things that help build better software. Since we love .NET Core, we thought we would build something to not only help us out, but help others out!
-
-We will have more templates coming soon, so check back for updates, and reinstall your templates from time to time to keep them up-to-date!
+# Idea42, LLC .NET Core Templates
+The purpose of these templates are to provide bootstraped applications that you can then build on and change as you need! We've implemented some of the most common items needed for coding ReactJS, AngularJS and WebAPI applications into .NET core apps, providing several pre-built commands (including docker stuff for those wanting to build docker containers) for you to run. 
 
 ## Prerequisites
-Install .NET Core here (https://www.microsoft.com/net/core)
+Install .NET Core here ([https://www.microsoft.com/net/core](https://www.microsoft.com/net/core))
 
-## Installation
-To install our templates, simply run the following command:
-`dotnet new --install Idea42.NetCore.Templates::*`
+## Installing the templates
+To install our templates, simply run the following command:  
+```
+dotnet new --install Idea42.NetCore.Templates::*
+```
 
-You should now have some new options avaliable for the `dotnet new` command. :-)
+## Uninstalling the templates
+If you just absolutely hate these templates, you can remove by running the following:
+```
+dotnet new --uninstall Idea42.NetCore.Templates::*
+```
 
-If you have issues getting up and running with one of our templates, please see the steps below for the template you are trying to work with
+## Using the templates
+After installation, the following templates will be avaliable. 
 
-### `dotnet new angular1`
-This is a basic angular 1.x template with a helpful `serviceBase.js` service and built in capabilities to inject settings from the `appSettings.json` files. Perform the following commands to compile. 
-
-`npm install -g gulp-cli`
-
-`dotnet restore`
-
-`dotnet build`
-
-`dotnet run`
-
-**AFTER CHANGES**
-
-To recompile, and make sure all thigns happen that need to happen with minification and SASS compilations, always run
-
-`dotnet build`
-
-`dotnet run`
-
-### `dotnet new authapi`
-This is a basic API with JSON WebToken authentication enabled. We are using EF and SQLite. You can change the database to SQL Server easily by replacing `options.UseSqlite` with `options.UseSqlServer` in `Startup.cs`. After you do this, you'll need to update your connection strings to work with SQL Server. You can see those connection string in the appSettings.json file. 
-
-To build and get this template working as is, you need to do the following. 
-
-`dotnet restore`
-
-`dotnet ef migrations add initial`
-
-`dotnet ef database update`
-
-`dotnet build`
-
-`dotnet run`
-
-As always, if you add a new DB context, or change an existing one, create a new migration by using `dotnet ef migrations add migrationName` and then call `dotnet ef database update`
-
-### `dotnet new reactjs`
-This is a bare bone basic implementation of ReactJS using MVC to inject the HTML and Javascript to the browser. Once the Javascript is loaded, react takes over, delivering a 100% pure ReactJS experience. The react app is all stored in the `app` folder and uses react-router to handle the routing of the pages. Perform the following commands to compile:
-
-`npm install`
-
-`dotnet restore`
-
-`dotnet build`
-
-`dotnet run`
-
-**AFTER CHANGES**
-
-To recompile, and make sure all thigns happen that need to happen with webpack bundling, always run
-
-`dotnet build`
-
-`dotnet run`
-
-You can also from the root of the application type `webpack`. 
+| Command | Description |  |
+| --- | --- | -- |
+| `dotnet new reactjs` | Will create a new .NET Core app that wraps the `react-scripts` commands to build production ready ReactJS in .NET Core. | 
+| `dotnet new angularjs` | Will create a new .NET Core app that wraps the `ng` commands to build production ready AngularJS in .NET Core. |
+| `dotnet new authapi` | Will create a simple Authenticating API using [OpenIddict](https://github.com/openiddict/openiddict-core) to handle authentication. |
+| `dotnet new authreactjs` | Creates a combo application that implements the ReactJS template above with the AuthAPI from above. This application will run on its own without having a seperate API.

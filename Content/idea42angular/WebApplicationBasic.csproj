@@ -12,14 +12,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appsettings*json">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
     <Content Include="wwwroot/\*\*">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
   <Target Name="PrecompileTarget" AfterTargets="Build">
-    <Exec Condition="$(Configuration) == 'Debug'" Command="yarn build" />
-    <Exec Condition="$(Configuration) == 'Release'" Command="yarn build" />
+    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run build" />
+    <Exec Condition="$(Configuration) == 'Release'" Command="npm run build" />
   </Target>
 </Project>

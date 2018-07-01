@@ -29,8 +29,19 @@
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings*json">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot/\*\*">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
   <Target Name="PrecompileTarget" AfterTargets="Build">
-    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run buildDev" />
-    <Exec Condition="$(Configuration) == 'Release'" Command="npm run buildProd" />
+    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run build" />
+    <Exec Condition="$(Configuration) == 'Release'" Command="npm run build" />
   </Target>
 </Project>

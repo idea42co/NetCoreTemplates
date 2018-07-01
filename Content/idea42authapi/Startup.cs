@@ -75,6 +75,7 @@ namespace WebApplicationBasic
             }
 
             app.UseAuthentication();
+
             app.UseMvc();
         }
     }

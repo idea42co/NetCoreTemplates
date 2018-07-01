@@ -1,34 +1,31 @@
 {
-  "name": "app",
+  "name": "authreactjsapp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2", 
-    "underscore": "^1.8.3"
+    "node-sass-chokidar": "^1.3.0",
+    "npm-run-all": "^4.1.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "underscore": "^1.9.1"
   },
   "scripts": {
+    "docker-build": "docker build -t reactauthwebapp .",
+    "docker-run": "docker run -d -p 3000:3000 --name authreactapp reactauthwebapp",
+    "docker-stop": "docker container stop authreactapp || true",
+    "docker-remove": "docker container rm authreactapp || true",
+    "docker": "npm-run-all docker-build docker-stop docker-remove docker-run",
+    "pre-build": "rm -r wwwroot || true",
+    "post-build": "mv build wwwroot",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all pre-build build-css build-js post-build",
     "test": "react-scripts test --env=jsdom",
-    "build": "webpack",
-    "buildDev": "webpack",
-    "buildProd": "webpack"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.7",
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^0.11.2",
-    "html-webpack-plugin": "^2.30.1",
-    "image-webpack-loader": "^3.4.1",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.5.5"
+    "eject": "react-scripts eject"
   }
 }

@@ -13,7 +13,6 @@ using WebApplicationBasic.Data.Contracts;
 using WebApplicationBasic.Data;
 using System;
 using Microsoft.AspNetCore.Identity;
-using WebApplicationBasic.Models;
 
 namespace WebApplicationBasic
 {
@@ -34,10 +33,7 @@ namespace WebApplicationBasic
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
             services.AddMvc();
-
-            services.Configure<ReactAppSettings>(Configuration.GetSection("ReactAppSettings"));
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
@@ -64,6 +60,7 @@ namespace WebApplicationBasic
             services.AddTransient<IUoW, UoW>();
         }
 
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
@@ -77,30 +74,19 @@ namespace WebApplicationBasic
                 context.EnsureSeedData(serviceProvider.GetService<UserManager<ApplicationUser>>(), serviceProvider.GetService<IUserService>(), serviceProvider.GetService<RoleManager<ApplicationRole>>()).GetAwaiter().GetResult();
             }
 
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
-            app.UseStaticFiles();
-            
             app.UseAuthentication();
-            app.UseMvc(routes =>
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
+             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "ReactJS",
+                    name: "React",
                     template: "",
                     defaults: new { controller = "React", action = "Index" });
 
                 routes.MapRoute(
-                    name: "ReactJSDeepLink",
+                    name: "DeepLink",
                     template: "{*pathInfo}",
                     defaults: new { controller = "React", action = "Index" });
             });

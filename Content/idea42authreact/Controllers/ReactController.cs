@@ -1,25 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using WebApplicationBasic.Models;
 
-namespace WebApplicationBasic.Controllers
+// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace HomeTeam.web.Controllers
 {
     public class ReactController : Controller
     {
-        public readonly ReactAppSettings _config;
-
-        public ReactController(IOptions<ReactAppSettings> options)
-        {   
-            _config = options.Value;
-        }
+        // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.ReactAppConfig = _config;
-            return View();
+            return File("index.html", "text/html");
         }
     }
 }

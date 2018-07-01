@@ -96,15 +96,10 @@ Using curl for example, you would request a bearer token by calling the followin
   
 
 ```javascript
-
 curl --request  POST \
-
---url http://localhost:3000/token \
-
---header  'Content-Type: application/x-www-form-urlencoded' \
-
---data  'grant_type=password&username=admin&password=P%40ssw0rd'
-
+  --url http://localhost:3000/token \
+  --header  'Content-Type: application/x-www-form-urlencoded' \
+  --data  'grant_type=password&username=admin&password=P%40ssw0rd'
 ```
 
   
@@ -112,15 +107,10 @@ curl --request  POST \
 This should return
 
 ```javascript
-
 {
-
-"token_type":"Bearer",
-
-"access_token":"<bearer token>",
-
-"expires_in":3600
-
+  "token_type":"Bearer",
+  "access_token":"<bearer token>",
+  "expires_in":3600
 }
 
 ```

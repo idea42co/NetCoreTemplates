@@ -15,7 +15,7 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route path="/newRoute" component={NewRoutePage} />
-            <Route exact path="/login" component={LoginPage} />
+            <Route path="/login" component={LoginPage} />
         </Switch>
     </BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();

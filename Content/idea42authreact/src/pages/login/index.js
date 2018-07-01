@@ -1,9 +1,8 @@
 ﻿import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import AuthManager from '../../managers/authManager';
 import AuthService from '../../services/authService';
 
-import './Login.scss';
+import './login.css';
 
 class LoginPage extends Component {
     constructor(props) {

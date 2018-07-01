@@ -78,7 +78,18 @@ namespace WebApplicationBasic
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.UseMvc();
+             app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "React",
+                    template: "",
+                    defaults: new { controller = "React", action = "Index" });
+
+                routes.MapRoute(
+                    name: "DeepLink",
+                    template: "{*pathInfo}",
+                    defaults: new { controller = "React", action = "Index" });
+            });
         }
     }
 }

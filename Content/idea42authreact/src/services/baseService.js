@@ -2,9 +2,6 @@
 import Config from '../config'
 
 export default class BaseService {
-    constructor() {
-
-    }
 
     jsonRequest(url, method, data, baseUrl) {
         var self = this;

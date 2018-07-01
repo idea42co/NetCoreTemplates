@@ -17,7 +17,7 @@
     "docker-stop": "docker container stop reactapp || true",
     "docker-remove": "docker container rm reactapp || true",
     "docker": "npm-run-all docker-build docker-stop docker-remove docker-run",
-    "pre-build": "rm -r wwwroot",
+    "pre-build": "rm -r wwwroot || true",
     "post-build": "mv build wwwroot",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",

@@ -1,10 +1,11 @@
 const Config = () => {
-    const { environment } = require(`./${process.env.NODE_ENV || 'development'}`)
+    const { environment } = require(`./env/${process.env.NODE_ENV || 'development'}`)
 
     return {
         api: {
-            baseUrl: environment.api.baseurl
-        }
+            baseUrl: environment.api.baseUrl
+        },
+        loginRoute: environment.loginRoute
     }
 }
 

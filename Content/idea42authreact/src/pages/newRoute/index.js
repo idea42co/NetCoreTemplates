@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg';
+import AuthenticatedPage from '../../components/authenticatedPage';
 import './style.css';
 
-class LandingPage extends Component {
+class LandingPage extends AuthenticatedPage {
   render() {
     return (
       <div className="App">
@@ -12,7 +13,7 @@ class LandingPage extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          NEW ROUTE!!! 
+          NEW ROUTE!!!
           <br /><br />
           <Link to="/">Click here to go back!</Link>
         </p>

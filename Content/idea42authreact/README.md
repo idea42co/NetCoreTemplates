@@ -88,7 +88,7 @@ Protecting routes happens on the page level in our implementation. By extending 
 
 For example: 
 ```jsx
-import AuthManager from '../../managers/authManager';
+import AuthenticatedPage from '../../components/authenticatedPage';
 class ProtectedPage extends AuthenticatedPage {
  // Implement Page Here
 }

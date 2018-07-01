@@ -13,9 +13,9 @@
   },
   "scripts": {
     "docker-build": "docker build -t reactauthwebapp .",
-    "docker-run": "docker run -d -p 3000:3000 --name reactapp reactauthwebapp",
-    "docker-stop": "docker container stop reactapp || true",
-    "docker-remove": "docker container rm reactapp || true",
+    "docker-run": "docker run -d -p 3000:3000 --name authreactapp reactauthwebapp",
+    "docker-stop": "docker container stop authreactapp || true",
+    "docker-remove": "docker container rm authreactapp || true",
     "docker": "npm-run-all docker-build docker-stop docker-remove docker-run",
     "pre-build": "rm -r wwwroot || true",
     "post-build": "mv build wwwroot",

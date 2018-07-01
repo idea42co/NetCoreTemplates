@@ -1,7 +1,7 @@
 
 # `dotnet new authreactjs`
 
-Creates a combo application that implements the ReactJS and the AuthAPI together as one application. This application will run on its own without having a seperate API. Use this to rapidly prototype applications without needing to have a seperate API.
+Creates a combo application that implements the ReactJS template and the AuthAPI template together as one application. This application will run on its own without having a seperate API. Use this to rapidly prototype applications without needing to have a seperate API.
 
 This template includes a simple login page and necessary ReactJS components, managers and service implementations to handle authentication. Note that even though Authentication is handled in ReactJS, ALWAYS PUT SAFEGUARDS IN YOUR API!
 

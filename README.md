@@ -13,7 +13,7 @@ dotnet new --install Idea42.NetCore.Templates::*
 ## Uninstalling the templates
 If you just absolutely hate these templates, you can remove by running the following:
 ```
-dotnet new --uninstall Idea42.NetCore.Templates::*
+dotnet new --uninstall Idea42.NetCore.Templates
 ```
 
 ## Using the templates

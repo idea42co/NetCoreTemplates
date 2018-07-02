@@ -2,19 +2,19 @@
   "author": "Idea42, LLC",
   "classifications": [
     "Web",
-    "AngularJS",
+    "Angular",
     "Base"
   ],
-  "groupIdentity": "Idea42.NetCore.Templates.AngularJS",
-  "identity": "Idea42.NetCore.Templates.AngularJS.CSharp",
-  "name": "Idea42: AngularJS base",
+  "groupIdentity": "Idea42.NetCore.Templates.Angular",
+  "identity": "Idea42.NetCore.Templates.Angular.CSharp",
+  "name": "Idea42: Angular base",
   "preferNameDirectory": true,
   "primaryOutputs": [
     {
       "path": "WebApplicationBasic.csproj"
     }
   ],
-  "shortName": "angularjs",
+  "shortName": "angular",
   "sourceName": "WebApplicationBasic",
   "sources": [
     {

@@ -21,10 +21,10 @@ After installation, the following templates will be avaliable.
 
 | Command | Description |  |
 | --- | --- | -- |
-| `dotnet new reactjs` | Will create a new .NET Core app that wraps the `react-scripts` commands to build production ready ReactJS in .NET Core. | [Documentation](/Content/idea42react)
-| `dotnet new angular` | Will create a new .NET Core app that wraps the `ng` commands to build production ready Angular in .NET Core. |[Documentation](/Content/idea42angular)
+| `dotnet new reactapp` | Will create a new .NET Core app that wraps the `react-scripts` commands to build production ready ReactJS in .NET Core. | [Documentation](/Content/idea42react)
+| `dotnet new angularapp` | Will create a new .NET Core app that wraps the `ng` commands to build production ready Angular in .NET Core. |[Documentation](/Content/idea42angular)
 | `dotnet new authapi` | Will create a simple Authenticating API using [OpenIddict](https://github.com/openiddict/openiddict-core) to handle authentication. | [Documentation](/Content/idea42authapi)
-| `dotnet new authreactjs` | Creates a combo application that implements the ReactJS template above with the AuthAPI from above. This application will run on its own without having a seperate API. | [Documentation](/Content/idea42authreact)
+| `dotnet new authreact` | Creates a combo application that implements the ReactJS template above with the AuthAPI from above. This application will run on its own without having a seperate API. | [Documentation](/Content/idea42authreact)
 
 ## Contributions! 
 If something doesn't work, or you think we need to change something, please let us know in the issues section!

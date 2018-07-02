@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using Newtonsoft.Json;
+<html ng-app="angularSPA">
+<head>
+    <script src="~/js/site.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/site.min.css" />
+    <script type="text/javascript">
+        var angularAppConfig = @Html.Raw(JsonConvert.SerializeObject(ViewBag.AngularAppConfig));
+    </script>
+    <base href="/" />
+</head>
+<body>
+    <div ng-include="'/angular/views/shell.html'">
+
+    </div>
+</body>
+</html>

@@ -12,6 +12,7 @@ COPY *.csproj ./
 COPY . ./
 
 # build steps
+RUN npm install -g gulp-cli
 RUN npm install
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
@@ -21,6 +22,7 @@ FROM microsoft/aspnetcore:2.0
 WORKDIR /app
 COPY --from=build-env /app/out/ ./
 COPY --from=build-env /app/wwwroot ./wwwroot
+COPY --from=build-env /app/Views ./Views
 
 EXPOSE 3000
 

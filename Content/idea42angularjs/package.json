@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "asp.net",
+  "name": "angularjsapp",
   "private": true,
   "scripts": {
     "docker-build": "docker build -t angularjswebapp .",

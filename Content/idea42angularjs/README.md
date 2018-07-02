@@ -20,7 +20,7 @@ After changes, just run the following commands again.
 
 You will need to first install docker. [Docker Community Edition](https://www.docker.com/community-edition)
 
-Once installed, you can use `npm run docker` to build and run a docker container called `authreactapp`. Once this command completes, you can access the site by hitting `http://localhost:3000`, unless you tweak the port mapping in the build commands.
+Once installed, you can use `npm run docker` to build and run a docker container called `authreactapp`. Once this command completes, you can access the site by hitting `http://localhost:4200`, unless you tweak the port mapping in the build commands.
   
 ## Contributions!
 

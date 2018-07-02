@@ -1,5 +1,5 @@
-# `dotnet new angularjs`
-This bootstrap used the `ng new` command to build a standalone AngularJS application that builds directly into .NET Core.
+# `dotnet new angular`
+This bootstrap used the `ng new` command to build a standalone Angular application that builds directly into .NET Core.
 
 ## For Development
 You can use the following to run your application during development. 

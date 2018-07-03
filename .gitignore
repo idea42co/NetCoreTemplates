@@ -20,3 +20,5 @@
 *.user
 /Content/*/Properties/launchSettings.json
 /.vscode
+*.lock
+package-lock.json

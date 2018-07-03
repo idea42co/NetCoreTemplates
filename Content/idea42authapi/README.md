@@ -4,6 +4,7 @@
 This bootstrap takes [OpenIddict](https://github.com/openiddict/openiddict-core), Entity Framework (working with SQLite by default), creates models to create the Users and Roles tables, and builds a simple test API to allow you to test that things are working. 
 
 ## For Development
+**NOTE:** Be sure to run `npm install` before trying any of these commands.
 
 You can use the following to run your application during development.
 -   `dotnet build`  then  `dotnet run`

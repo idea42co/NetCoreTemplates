@@ -2,6 +2,8 @@
 This bootstrap used the `create-react-app` command to build a standalone ReactJS application that builds directly into .NET Core.
 
 ## For Development
+**NOTE:** Be sure to run `npm install` before trying any of these commands.
+
 You can use the following to run your application during development. 
 
  - `npm start`

@@ -5,6 +5,7 @@ Creates a combo application that implements the ReactJS template and the AuthAPI
 This template includes a simple login page and necessary ReactJS components, managers and service implementations to handle authentication. Note that even though Authentication is handled in ReactJS, ALWAYS PUT SAFEGUARDS IN YOUR API!
 
 ## For Development
+**NOTE:** Be sure to run `npm install` before trying any of these commands.
 
 You can use the following to run your application during development.
 
@@ -22,7 +23,7 @@ Since we are using entity framework to build the API, you'll need to generate yo
 dotnet ef migrations add initial
 ```
 
-On `dotnet run`, the application will run the migration and add three roles and a default admin account. Default credentials are `admin`  `P@ssw0rd`
+On `dotnet run`, the application will run the migration and add three roles and a default admin account. Default credentials are `admin` `P@ssw0rd`
 
 In your first release to production, it's best that you either disable the default account script OR immediately change the admin's password after deployment. Either way, the best practice is to ensure default data by checking and adding, if needed, in [Data/DbContexts/ApplicationDbContextExtensions.cs](/Content/idea42authreact/Data/DbContexts/ApplicationDbContextExtensions.cs)
 

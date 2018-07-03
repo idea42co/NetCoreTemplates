@@ -19,3 +19,4 @@
 *.db
 *.user
 /Content/*/Properties/launchSettings.json
+/.vscode

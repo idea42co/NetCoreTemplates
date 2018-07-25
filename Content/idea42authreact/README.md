@@ -1,4 +1,4 @@
-# `dotnet new authreactjs`
+# `dotnet new authreact`
 
 Creates a combo application that implements the ReactJS template and the AuthAPI template together as one application. This application will run on its own without having a seperate API. Use this to rapidly prototype applications without needing to have a seperate API.
 
